@@ -1,8 +1,3 @@
 {
-  "firmware": {
-    "date": 20260922
-  },
-  "littlefs": {
-    "date": 20260921
-  }
+  "firmware": { "date": 20260922  }
 }
