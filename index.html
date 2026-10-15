@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>ESP32 Web Flasher</title>
+    <meta charset="utf-8">
+    <title>Smart EVSE  — Firmware Installer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
-        .container { background: white; padding: 30px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        esp-web-install-button { margin-top: 20px; display: block; }
+        body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #0284c7; }
+        esp-web-install-button { margin-top: 20px; }
     </style>
-    <!-- Подключаем скрипт ESP Web Tools -->
-    <script type="module" src="https://unpkg.com"></script>
 </head>
 <body>
+    <h1>Smart EVSE Controller</h1>
+    <p>Установка прошивки на ESP32-S3. Подключите чип по USB и нажмите кнопку ниже.</p>
+    <p><b>Внимание:</b> требуется Chrome, Edge или Opera (WebSerial).</p>
 
-<div class="container">
-    <h1>Прошивка ESP32 из браузера</h1>
-    <p>Подключите плату по USB к компьютеру и нажмите кнопку ниже.</p>
-    
-    <!-- Кнопка прошивки, привязанная к нашему манифесту -->
-    <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
-</div>
-
+    <esp-web-install-button manifest="manifest.json">
+        <button slot="activate">Прошить устройство</button>
+        <span slot="unsupported">Ваш браузер не поддерживает WebSerial. Используйте Chrome/Edge.</span>
+        <span slot="not-allowed">Разрешите доступ к последовательному порту.</span>
+    </esp-web-install-button>
 </body>
 </html>
-
